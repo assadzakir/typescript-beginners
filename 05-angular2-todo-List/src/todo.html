@@ -1,0 +1,11 @@
+<h1>My First Angular 2 Todo App</h1>
+<div *ng-for="#item of todos">
+	<input type="checkbox" #chkbox [checked]="item.completed" (click)="setCompleted(list,chkbox.value)">
+{{item.text}} {{item.completed}}
+<a (click)="removeList(list)">X</a>	
+</div>
+<br>
+<button *ng-if="todos.length > 1" (click)="completedAll()"></button>
+<br>
+<input type="text" #add (keyup)="doneTypeing($event)">
+<button (click)="addItem(add)" >Add Item</button>
